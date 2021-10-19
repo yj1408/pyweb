@@ -1,0 +1,18 @@
+/* index 스타일 */
+#container{width: 990px; margin: 0 auto; padding-top: 20px}
+section h2{color: blue; font-size: 2rem}
+section ul li{margin: 20px; font-size: 1.2rem}
+section ul li a{text-decoration: none; color: #000;}
+section ul li a:hover{background-color: #ccc;}
+
+/* detail 스타일 */
+.form_vote{width: 500px}
+.form_vote h3{margin: 0; font-size: 1.5rem;}
+.form_vote strong{color: #f00;}
+
+/* result 스타일 */
+#result ul{margin: 20px 0 30px;}
+#result .vote{margin-left: 20px;}
+#result a{text-decoration: none; color: #000;}
+#result .button{border: 1px solid #333; background-color: #eee;
+     border-radius: 5px; padding: 5px;}

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>설문 항목 투표</title>
+    <link rel="stylesheet" href="{% static 'pybo/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <section>
+            <form action="{% url 'poll:vote' question.id %}" method="post" class="form_vote">
+                {% csrf_token %}
+                <fieldset>
+                    <legend><h3>{{ question.question_text }}</h3></legend>
+                    {% if error_message %}
+                    <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    {% for choice in question.choice_set.all  %}
+                    <p>
+                        <input type="radio" name="choice" id="choice{{ forloop.counter }}"
+                                            value="{{ choice.id }}">
+                        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+                    </p>
+                    {% endfor %}
+                </fieldset>
+                <p><input type="submit" value="투표"></p>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
