@@ -96,5 +96,21 @@
 </form>
 {% endblock %}
 {% block script %}
+<script>
+    $(document).ready(function(){
+        //페이지 클릭
+        $(".page-link").on('click', function(){
+            $('#page').val($(this).data('page'));   //data-page의 값을 id가 page인 필드에 설정
+            $('#searchForm').submit();  //폼을 전송
+        });
+
+        //검색 버튼 클릭
+        $("#btn_search").on('click', function(){
+            $('#kw').val($('.kw').val());  // 입력된 kw값을 id가 kw인 필드에 설정
+            $('#page').val(1);             // 1페이지부터 검색
+            $('#searchForm').submit();
+        });
+    });
+</script>
 
 {% endblock %}
